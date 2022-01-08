@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# v0.1.0
+
+action=$1
+shift
+
+[ "$action" = "usage" ] && {
+  echo ""
+  echo "  Calculate average duration of done tasks:"
+  echo "    average"
+  echo "      Adds total numbers and numbers for the last 7 days to average-report.txt in the same directory as todo.txt and done.txt"
+  echo ""
+  exit
+}
+[ "$action" = "average" ] && {
+    # use default python 
+    python "$TODO_ACTIONS_DIR"/average/collect-average.py "$DONE_FILE" 
+
+}
