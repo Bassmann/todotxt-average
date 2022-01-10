@@ -15,6 +15,6 @@ shift
 }
 [ "$action" = "average" ] && {
     # use default python 
-    python "$TODO_ACTIONS_DIR"/average/collect-average.py "$DONE_FILE" 
+    python3 "$TODO_ACTIONS_DIR"/average/average.py "$DONE_FILE" 
 
 }
