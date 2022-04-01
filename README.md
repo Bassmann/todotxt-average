@@ -1,7 +1,7 @@
 # todotxt-average
 Todotxt plugin to calculate average task duration
 
-It requires python3.
+It requires python3.6 at least since it uses f-strings.
 
 It will append to a file `average-report.txt` in the same directory as the `done.txt` file and add the date, the overall amount of done tasks and their average as well as the numbers for the last x days with 7 days as a default.
 

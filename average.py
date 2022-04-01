@@ -3,7 +3,6 @@ from datetime import datetime, timedelta, date
 import sys
 import os.path
 
-
 def main(todo_file, done_file, days_back=7):
 
     dir_file = os.path.split(done_file)
@@ -54,21 +53,15 @@ def main(todo_file, done_file, days_back=7):
     caverage = csum / cnum
     average = sum / num
 
-    out_header = "SUMMARY at {0}\n".format(str(datetime.now())[:16])
-    out_total = "{0} tasks closed in total with average duration {1}\n".format(
-                cnum, "{:.2f}".format(caverage))
-    out_days_back = "{0} tasks closed in the last {2} days with average duration {1}\n".format(num,
-                                                                                               "{:.2f}".format(
-                                                                                                   average), days_back)
-
-    print(out_header, end='')
-    print(out_total, end='')
-    print(out_days_back, end='')
-
     with open(outfilename, "a") as outfile:
-        outfile.write(out_header)
-        outfile.write(out_total)
-        outfile.write(out_days_back)
+        output = f'''
+SUMMARY at {datetime.now():%Y-%m-%d %T}
+{cnum} tasks closed in total with average duration {caverage:.2f} days
+{num} tasks closed in the last {days_back} days with average duration {average:.2f} days
+'''
+
+        print(output)
+        outfile.write(output)
 
 
 if __name__ == "__main__":
